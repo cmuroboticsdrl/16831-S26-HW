@@ -21,6 +21,30 @@ You can run this code locally on your own machine or on Google Colab. We recomme
 
 Note: If running in colab and you pull the repo again or install new packages, you may need to restart the runtime and reconnect before being able to run.
 
+If you encounter the following error in colab from running `%pip install -r requirements.txt`, you can safely ignore.
+
+```
+/content/gdrive/My Drive/hw_16831/16831-S26-HW/hw1
+Collecting numpy==1.25.2 (from -r requirements.txt (line 1))
+  Downloading numpy-1.25.2.tar.gz (10.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 67.0 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> See above for output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  Getting requirements to build wheel ... error
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+```
+
 ## Complete the code
 
 Detailed instructions about the assignment and what you need to do are in the homework pdf.
