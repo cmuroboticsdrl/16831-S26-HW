@@ -66,7 +66,8 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
                 itertools.chain([self.logstd], self.mean_net.parameters()),
                 self.learning_rate
             )
-
+        self.loss = nn.MSELoss()   
+        
     ##################################
 
     def save(self, filepath):
@@ -80,8 +81,12 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         else:
             observation = obs[None]
 
-        # TODO return the action that the policy prescribes
-        raise NotImplementedError
+        # done TODO return the action that the policy prescribes
+        obs_tensor = ptu.from_numpy(observation)
+        with torch.no_grad():
+            action = self.forward(obs_tensor)  
+        return ptu.to_numpy(action)
+
 
     # update/train this policy
     def update(self, observations, actions, **kwargs):
@@ -93,7 +98,15 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
     # return more flexible objects, such as a
     # `torch.distributions.Distribution` object. It's up to you!
     def forward(self, observation: torch.FloatTensor) -> Any:
-        raise NotImplementedError
+        obs_tensor = ptu.from_numpy(observation)
+        if self.discrete:
+            logits = ptu.to_numpy(self.logits_na(obs_tensor))
+            return(logits)
+        else:
+            mean = ptu.to_numpy(self.mean_net(obs_tensor))
+            return(mean)
+
+
 
 
 #####################################################
@@ -102,14 +115,26 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
 class MLPPolicySL(MLPPolicy):
     def __init__(self, ac_dim, ob_dim, n_layers, size, **kwargs):
         super().__init__(ac_dim, ob_dim, n_layers, size, **kwargs)
-        self.loss = nn.MSELoss()
+        if self.discrete:
+            self.loss = nn.CrossEntropyLoss()
+        else:
+            self.loss = nn.MSELoss()
+        
 
     def update(
             self, observations, actions,
             adv_n=None, acs_labels_na=None, qvals=None
     ):
-        # TODO: update the policy and return the loss
-        loss = TODO
+        # done TODO: update the policy and return the loss
+        obs_tensor = ptu.from_numpy(observations)
+        actions_tensor = ptu.from_numpy(actions)
+        predicted_actions = self.forward(obs_tensor)
+        loss = self.loss(predicted_actions, actions_tensor)
+
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        
 
         return {
             # You can add extra logging information here, but keep this line
