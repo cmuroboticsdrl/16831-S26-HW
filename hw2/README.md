@@ -5,7 +5,7 @@ You can run this code on your own machine or on Google Colab.
 1. **Local option:** If you choose to run locally, you will need to install MuJoCo and some Python packages; see [installation.md](../hw1/installation.md) from homework 1 for instructions. If you completed this installation for homework 1, you do not need to repeat it.
 2. **Colab:** The first few sections of the notebook will install all required dependencies. You can try out the Colab option by clicking the badge below:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/cmuroboticsdrl/16831-S26-HW/tree/main/hw2/rob831/scripts/run_hw2.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cmuroboticsdrl/16831-S26-HW/blob/master/hw2/rob831/scripts/run_hw2.ipynb)
 
 Local Install: Might need to install the swig tool
 ```bash
