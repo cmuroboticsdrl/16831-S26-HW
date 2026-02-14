@@ -25,6 +25,8 @@ The following files have blanks to be filled with your solutions from homework 1
 - [infrastructure/replay_buffer.py](rob831/infrastructure/replay_buffer.py)
 - [policies/MLP_policy.py](rob831/policies/MLP_policy.py)
 
+(You could also use our provided [solutions](./hw1_solns.md) to avoid being blocked by issues from your previous HW1.)
+
 You will then need to complete the following new files for homework 2. The relevant sections are marked with "TODO".
 - [agents/pg_agent.py](rob831/agents/pg_agent.py)
 - [policies/MLP_policy.py](rob831/policies/MLP_policy.py)
