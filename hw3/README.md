@@ -6,7 +6,7 @@ You can run this code on your own machine or on Google Colab.
 
 2. **Colab:** The first few sections of the notebook will install all required dependencies. You can try out the Colab option by clicking the badges below:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LeCAR-Lab/16831-S25-HW/blob/main/hw3/rob831/scripts/run_hw3_dqn.ipynb) **Part I (Q-learning)** 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cmuroboticsdrl/16831-S26-HW/blob/main/hw3/rob831/scripts/run_hw3_actor_critic.ipynb) **Part I (Q-learning)**  
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/LeCAR-Lab/16831-S25-HW/blob/main/hw3/rob831/scripts/run_hw3_actor_critic.ipynb)     **Part II (Actor-critic)** 
 
